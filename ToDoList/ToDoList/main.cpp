@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string>
 #include "Functionr.h"
 #include "menu.h"
 
@@ -10,6 +11,7 @@ int main()
 
 	languag();
 	menu();
+
 
 	return 0;
 }
