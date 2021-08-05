@@ -29,7 +29,7 @@ void show_menu_en()
 void add_note(string& new_note)
 {
 	
-	string patch = "text.txt";
+	string patch = "text2.txt";
 	ofstream fout;
 	fout.open(patch, fstream::in | fstream::out | fstream::app);
 
@@ -52,7 +52,7 @@ void add_note(string& new_note)
 //функция вывода заметки
 void show_all_notes()
 {
-	string patch = "text.txt";
+	string patch = "text2.txt";
 	ifstream open;
 	open.open(patch);
 	string str;
@@ -79,7 +79,7 @@ void show_all_notes()
 //Найти заметку
 string *Find_note(const string & note_to_find,int &n_found)
 {
-	string patch = "text.txt";
+	string patch = "text2.txt";
 	ifstream open;
 	open.open(patch);
 	string str;
@@ -117,15 +117,73 @@ string *Find_note(const string & note_to_find,int &n_found)
 	return found_notes;
 
 }
-//Удалить заметку 
-void  Remove_one_note(int &a,string &ptr)
+//возвращает указатель на массив всех заметок
+string *all_notes(int &n_count)
 {
-	string patch = "text.txt";
+	string patch = "text2.txt";
 	ifstream open;
-
-	open.open(patch, fstream::in | fstream::out );
-	ptr.erase(a);
-	
+	open.open(patch);
+	if (!open.is_open())
+	{
+		cout << "Error" << endl;
+	}
+	string all_not;
+	string *all_notes = nullptr;
+	string* all_notes_tmp = nullptr;
+	int count = 0;
+	while (!open.eof())
+	{
+		getline(open,all_not);
+		count++;
+		all_notes_tmp = new string[count];
+		for (size_t i = 0; i < count-1; i++)
 		
+			all_notes_tmp[i] = all_notes[i];
+		
+		all_notes_tmp[count - 1] = all_not;
+		delete[]all_notes;
+		all_notes = all_notes_tmp;
+		all_notes_tmp = nullptr;
+	}
 	open.close();
+	n_count = count;
+	return all_notes;
+	
+}
+
+//Удаляем выбранную заметку
+
+void remove_one_note(string* all_notes_ptr,int n_count ,int &a)
+{
+	
+	string patch = "text2.txt";
+	ofstream fout;
+	fout.open(patch);
+
+	if (!fout.is_open())
+	{
+		cout << "Error" << endl;
+	}
+	//запись заметки,без заметок с индексом а
+	SetConsoleCP(1251);
+	for (size_t i = 1; i < n_count; i++)
+	{
+		if (i==a-1)
+		
+			continue;
+			fout << all_notes_ptr[i] << endl;
+		
+	}
+	SetConsoleCP(851);
+	
+	fout.close();
+}
+void Remove_all_notes()
+{
+	fstream file("text2.txt", fstream::out| fstream::trunc);
+	if (!file.is_open())
+	{
+		cout << "Error" << endl;
+	}
+	file.close();
 }
