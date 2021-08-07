@@ -1,29 +1,9 @@
 #include <iostream>
 #include <string>
-#include <vector>
 #include <Windows.h>
 #include <fstream>
 #include "menu.h"
 using namespace std;
-void show_menu_ru()
-{
-	cout << " [1] Добавить заметку" << endl;
-	cout << " [2] Показать все заметки" << endl;
-	cout << " [3] Найти заметку" << endl;
-	cout << " [4] Удалить заметку " << endl;
-	cout << " [5] Удалить все заметки" << endl;
-	cout << " [6] Выйти" << endl;
-
-}
-void show_menu_en()
-{
-	cout << " [1] Add note" << endl;
-	cout << " [2] Show all notes" << endl;
-	cout << " [3] Find note" << endl;
-	cout << " [4] Remove one note" << endl;
-	cout << " [5] Remove all notes" << endl;
-	cout << " [6] Exit" << endl;
-}
 
 //функция добавления заметки
 void add_note(string& new_note)
@@ -62,9 +42,9 @@ void show_all_notes()
 	}
 	else
 	{
-		for (size_t i = 1; !open.eof(); i++)
+		for (int i = 0; !open.eof(); i++)
 		{
-			str = "";
+			//str = "";
 			getline(open, str);
 			if (str.empty())
 				continue;
@@ -136,7 +116,7 @@ string *all_notes(int &n_count)
 		getline(open,all_not);
 		count++;
 		all_notes_tmp = new string[count];
-		for (size_t i = 0; i < count-1; i++)
+		for (size_t i = 1; i < count-1; i++)
 		
 			all_notes_tmp[i] = all_notes[i];
 		

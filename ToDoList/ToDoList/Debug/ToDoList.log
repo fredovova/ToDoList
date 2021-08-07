@@ -1,3 +1,8 @@
-﻿  menu.cpp
-C:\Users\79195\OneDrive\Рабочий стол\ToDoList1\ToDoList\ToDoList\menu.cpp(77,27): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  Function.cpp
+C:\Users\79195\OneDrive\Рабочий стол\ToDoList1\ToDoList\ToDoList\Function.cpp(119,24): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\79195\OneDrive\Рабочий стол\ToDoList1\ToDoList\ToDoList\Function.cpp(149,23): warning C4018: <: несоответствие типов со знаком и без знака
+  main.cpp
+  menu.cpp
+C:\Users\79195\OneDrive\Рабочий стол\ToDoList1\ToDoList\ToDoList\menu.cpp(104,28): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
   ToDoList.vcxproj -> C:\Users\79195\OneDrive\Рабочий стол\ToDoList1\ToDoList\Debug\ToDoList.exe

@@ -8,9 +8,11 @@ int main()
 {
 	using namespace std;
 	setlocale(LC_ALL, "ru");
-
+	
 	languag();
-	menu();
+	menu_main();
+	
+	//menu();
 
 
 	return 0;
